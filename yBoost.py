@@ -7,7 +7,7 @@ import random
 pin = Pin(3,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
 
-def test():
+def pomme():
     for i in range(20):
         rand = random.randint(0, 63)
         pn[rand]= (0,25,0)
@@ -19,5 +19,5 @@ def test():
     pn[rand] = (0,0,0)
     pn.write()
     
-test()
+pomme()
 

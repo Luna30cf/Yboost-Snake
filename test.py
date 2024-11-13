@@ -35,16 +35,32 @@ def affichage_lines():
     m = 15
     p = 1
     for i in range (8):
+        count = 0
         C = []
         line = L1[i]
-        if (line == 0):
-            for c in range (3):
-                C.append(line + 15)
-                C.append(line + 1)
-            C.append(line + 15)
-        for y in range(6):
+        count = line
+        print(count)
+        C.append(line)
+        for t in range(3):
+            count = count + m
+            print(count)
+            C.append(count)
+            count = count + p
+            print(count)
+            C.append(count)
+        count = count + m
+        print(count)
+        C.append(count)
+        m = m - 2
+        p = p + 2
+        for y in range(8):
             column = C[y]
-            pn[column] = (0,5,5)
+            pn[column] = (5,0,5)
+            pn.write()
+        time.sleep(1)
+        for y in range(8):
+            column = C[y]
+            pn[column] = (0,0,0)
             pn.write()
         time.sleep(1)
 
