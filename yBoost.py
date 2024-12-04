@@ -27,4 +27,4 @@ def pomme():
     pn[rand] = (0,0,0)
     pn.write()
     
-
+pomme()
