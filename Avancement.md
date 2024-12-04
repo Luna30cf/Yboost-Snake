@@ -31,3 +31,5 @@ Finalement passée sur ESP32-C3-Mini (expressif) par contrainte de matériel.
 Pas particulièrement de changements remarqués à propos du traitement du code.
 
 Affichage de lignes et de colonnes séparement avec [affichage.py](affichage.py)
+
+

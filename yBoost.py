@@ -17,7 +17,7 @@ def turnOff():
     
 def pomme():
     for i in range(20):
-        rand = random.randint(0, 63)
+        rand = random.randint(0, 64)
         pn[rand]= (0,25,0)
         pn.write()
         time.sleep(1)
