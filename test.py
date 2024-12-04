@@ -56,15 +56,31 @@ def selectCoord(x, y):
     return "piou"
         
 def button():
+    x = 0
+    y = 0
     while True:
-        if  bUp.value() == 1:
-            pn[55] = (0,0,0)
-            pn[40] = (0,5,5)
-            pn.write()
-        else:
-            pn[40] = (0,0,0)
-            pn[55] = (5,0,5)
-            pn.write()
+        if  bUp.value() == 0:
+            if x == 0:
+                x = 7
+            else:
+                x -= 1
+        if bRight.value() == 0:
+            if y == 7:
+                y = 0
+            else :
+                y += 1
+        if bLeft.value() == 0:
+            if y == 0:
+                y = 7
+            else :
+                y -= 1
+        if bDown.value() == 0:
+            if x == 7:
+                x = 0
+            else :
+                x += 1
+        selectCoord(x, y)
+        
         
 button()
     
