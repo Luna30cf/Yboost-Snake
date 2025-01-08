@@ -1,11 +1,6 @@
-from machine import Pin
-import neopixel
 import time
 import random
 
-
-pin = Pin(5,Pin.OUT)
-pn = neopixel.NeoPixel(pin, 64)
 
 
 def selectL(y):
@@ -23,6 +18,7 @@ def selectL(y):
     return line
 
 
+
 def selectC(x):
     column = []
     for i in range(8):
@@ -36,12 +32,10 @@ def selectCoord(x, y):
     for elementC in range(8):
         for elementL in range(8):
             if line[elementL] == column[elementC]:
-                lum = line[elementL]
-    pn[lum] = (0,5,0)
-    pn.write()
-    time.sleep(1)
-    pn[lum]= (0,0,0)
-    pn.write()
-    return "piou"
-        
-selectCoord(2,6)
+                 lum = line[elementL]
+    # pn[lum] = (5,5,5)
+    # pn.write()
+    # time.sleep(0.2)
+    # pn[lum]= (0,0,0)
+    # pn.write()
+    return lum

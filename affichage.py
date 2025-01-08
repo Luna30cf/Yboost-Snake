@@ -1,3 +1,5 @@
+# test d'affichage
+
 from machine import Pin
 import neopixel
 import time
@@ -8,6 +10,12 @@ pn = neopixel.NeoPixel(pin, 64)
 
 C1= [0,15,16,31,32,47,48,63]
 L1=[0,1,2,3,4,5,6,7]
+
+def turnOff():
+    for i in range(64):
+        pn[i]=(0,0,0)
+    pn.write()
+ 
 
 def affichage_columns():
     for i in range (8):
@@ -83,8 +91,8 @@ def selectC(x):
 
 
 def selectCoord(x, y):
-    column = affC(x)
-    line = affL(y)
+    column = selectC(x)
+    line = selectL(y)
     for elementC in range(8):
         for elementL in range(8):
             if line[elementL] == column[elementC]:
@@ -95,4 +103,4 @@ def selectCoord(x, y):
     pn.write()
     return "piou"
         
-selectCoord(2,6)
+affichage_columns()

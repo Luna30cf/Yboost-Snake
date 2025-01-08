@@ -2,38 +2,29 @@ from machine import Pin
 import neopixel
 import time
 import random
+# from apple import pomme
+# from déplacement import move
+# from snake import selectCoord
+# from affichage import turnOff
 
 pin = Pin(5,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
 bRight = Pin(4,Pin.IN, Pin.PULL_UP)
-bLeft = Pin(9,Pin.IN, Pin.PULL_UP)
+bLeft = Pin(11,Pin.IN, Pin.PULL_UP)
 bDown = Pin(7,Pin.IN, Pin.PULL_UP)
 bUp = Pin(6,Pin.IN, Pin.PULL_UP)
-
-
-C1= [0,15,16,31,32,47,48,63]
-L1=[0,1,2,3,4,5,6,7]
-
+          
 def turnOff():
     for i in range(64):
         pn[i]=(0,0,0)
     pn.write()
-    
-def pomme():
-    rand = random.randint(0, 63)
-    return rand
-    #     pn[rand]= (0,25,0)
-    #     pn.write()
-    #     time.sleep(1)
-    #     pn[rand]= (0,0,0)
-    #     time.sleep(0.5)
-    #     pn.write()
-    # pn[rand] = (0,0,0)
-    # pn.write()
-    
-pomme()
 
-    
+def pomme():
+    for i in range(20):
+        rand = random.randint(0, 64)
+        return rand
+
+
 def selectL(y):
     m = 15
     p = 1
@@ -57,6 +48,7 @@ def selectC(x):
     return column
 
 
+
 def selectCoord(x, y):
     column = selectC(x)
     line = selectL(y)
@@ -64,14 +56,10 @@ def selectCoord(x, y):
         for elementL in range(8):
             if line[elementL] == column[elementC]:
                  lum = line[elementL]
-    # pn[lum] = (5,5,5)
-    # pn.write()
-    # time.sleep(0.2)
-    # pn[lum]= (0,0,0)
-    # pn.write()
     return lum
-        
-def move(x, y):
+
+
+def move(x,y):
     while True:
         if  bUp.value() == 0:
             if y == 0:
@@ -95,6 +83,7 @@ def move(x, y):
                 y += 1
         return x,y
         
+
 def collider():
     
     turnOff()
@@ -125,5 +114,5 @@ def collider():
             pn.write()
         
     
-turnOff()
+collider()
     
