@@ -47,3 +47,17 @@ Déplacement du serpent avec les boutons. [déplacement.py](déplacement.py)
 Collision avec la pomme. [collision.py](collision.py)
 
 
+#### **8/012025**
+
+Recherche sur le tableau qui représente le snake qui s'incrémente après avoir mangé la pomme => échec voir test.py
+
+Amélioration du déplacement avec les boutons (voir [direction.py](direction.py)):
+- plus besoin d'appuyer pour se déplacer à chaque fois comme sur le fichier [déplacement.py](déplacement.py)
+- rapprochement de la logique du snake
+
+#### **29/01/2025
+
+Tableau fonctionnel [tableau.py](tableau.py)
+Achèvement du snake sans POO encore.
+Début de POO
+

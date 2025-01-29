@@ -3,10 +3,6 @@ import neopixel
 import time
 import random
 
-# from déplacement import move
-# from snake import selectCoord
-# from affichage import turnOff
-
 
 
 pin = Pin(5,Pin.OUT)
@@ -18,7 +14,10 @@ bUp = Pin(6,Pin.IN, Pin.PULL_UP)
 
 
 tab = []
+body = []
 dir = "UP"
+initBody = True
+isApple = False
 
 def turnOff():
     for i in range(64):
@@ -26,7 +25,7 @@ def turnOff():
     pn.write()
 
 def pomme():
-    for i in range(20):
+    while True:
         rand = random.randint(0, 64)
         return rand
     
@@ -111,36 +110,53 @@ def selectCoord(x, y):
     return lum
 
 
- 
+
 def collider():
+    global initBody
+    global isApple
     
     turnOff()
     apple = pomme()
     x, y = 0,0
+    tab = [[x,y]]
+    tabHead = [x,y]
     
     while True:
+        
         movelist = move(x, y)
         x = movelist[0]
         y = movelist[1]
-        print(x)
-        print(y)
-        head = selectCoord(movelist[0], movelist[1])
-        print(head)
-        print(apple)
-        if head == apple:
-            pn[apple] = (0,0,0)
-            pn[head] = (0,5,5)
+        tabHead = [x,y]
+        
+        if initBody:
+            for t in tab:
+                body.append(selectCoord(t[0],t[1]))
+            initBody = False
+            
+        head = body[0]
+            
+        
+        tab.insert(0,tabHead) 
+        body.insert(0,selectCoord(x,y))
+        
+        if isApple == False: 
+            pn[body[len(body)-1]]= (0,0,0) #
+            tab.pop() #
+            body.pop() #
+            pn[apple]=(0,5,0)
             pn.write()
-            time.sleep(0.3)
-            pn[head]= (0,0,0)
-            pn.write()
+        else:
             apple = pomme()
-        else :
-            pn[apple] = (0,5,0)
-            pn[head] = (5,5,5)
-            pn.write()
-            time.sleep(0.3)
-            pn[head]= (0,0,0)
-            pn.write()
+            isApple = False
+        
+            
+        pn[body[0]]= (5,5,5)
+        
+        if head == apple:
+            isApple = True
+            pn[apple]=(0,0,0)
+        
+        pn.write()
+        time.sleep(0.2)
 
-collider()
+turnOff()
