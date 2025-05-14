@@ -3,12 +3,12 @@ import neopixel
 import time
 from snake import selectCoord
 
-pin = Pin(5,Pin.OUT)
+pin = Pin(4,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
-bRight = Pin(4,Pin.IN, Pin.PULL_UP)
-bLeft = Pin(9,Pin.IN, Pin.PULL_UP)
-bDown = Pin(7,Pin.IN, Pin.PULL_UP)
-bUp = Pin(6,Pin.IN, Pin.PULL_UP)
+bRight = Pin(7,Pin.IN, Pin.PULL_UP)
+bLeft = Pin(5,Pin.IN, Pin.PULL_UP)
+bDown = Pin(20,Pin.IN, Pin.PULL_UP)
+bUp = Pin(9,Pin.IN, Pin.PULL_UP)
 
 
            

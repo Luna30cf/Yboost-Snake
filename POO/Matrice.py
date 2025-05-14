@@ -2,7 +2,7 @@ from machine import Pin
 import neopixel
 import time
 
-pin = Pin(5,Pin.OUT)
+pin = Pin(4,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
 
 class Matrice:
@@ -66,4 +66,18 @@ class Matrice:
                 column = C[y]
                 pn[column] = (0,0,0)
                 pn.write()
+                
+                
+    def looser(self):
+        self.turnOff()
+        pn[17] = (5,0,0)
+        pn[18] = (5,0,0)
+        pn[19] = (5,0,0)
+        pn[20] = (5,0,0)
+        pn[21] = (5,0,0)
+        pn[22] = (5,0,0)
+        pn[25] = (5,0,0)
+        pn[38] = (5,0,0)
+        pn[41] = (5,0,0)
+        pn.write()
 

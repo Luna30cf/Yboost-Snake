@@ -57,7 +57,35 @@ Amélioration du déplacement avec les boutons (voir [direction.py](direction.py
 
 #### **29/01/2025
 
-Tableau fonctionnel [tableau.py](tableau.py)
-Achèvement du snake sans POO encore.
-Début de POO
+- Tableau fonctionnel [tableau.py](tableau.py)
+- Achèvement du snake sans POO encore.
+- Début de POO
+
+#### **12/03/2025
+
+Carte électronique sur *Altium Designer*   
+- Bonnes pratiques:  
+    - chanfrein, pas d'angles droits   
+    - espace correct entre les pistes pour éviter les erreurs de communication   
+- Etapes:   
+    - 1ere étape: poser les composants sur la carte  
+    - 2e étape: faire les routes/pistes  
+    - 3e étape : redimensionner la carte  
+    - 4e étape: les couches (5V, GND)
+
+Astuces:   
+    utiliser des polygones
+
+[Schéma Electronique](schéma.PDF)
+
+#### **2/04/2025**
+
+Réalisation de la PCB et routage.
+[PCB](PCB1.PcbDoc)
+
+#### **14/05/2025**
+
+- Peaufinage du code
+- Préparation de l'oral
+
 

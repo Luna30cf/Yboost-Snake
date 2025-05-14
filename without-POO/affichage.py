@@ -2,7 +2,7 @@ from machine import Pin
 import neopixel
 import time
 
-pin = Pin(5,Pin.OUT)
+pin = Pin(4,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
 
 class Matrice:

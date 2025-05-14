@@ -9,12 +9,13 @@ import random
 
 
 
-pin = Pin(5,Pin.OUT)
+pin = Pin(4,Pin.OUT)
 pn = neopixel.NeoPixel(pin, 64)
-bRight = Pin(4,Pin.IN, Pin.PULL_UP)
-bLeft = Pin(11,Pin.IN, Pin.PULL_UP)
-bDown = Pin(7,Pin.IN, Pin.PULL_UP)
-bUp = Pin(6,Pin.IN, Pin.PULL_UP)
+bRight = Pin(7,Pin.IN, Pin.PULL_UP)
+bLeft = Pin(5,Pin.IN, Pin.PULL_UP)
+bDown = Pin(20,Pin.IN, Pin.PULL_UP)
+bUp = Pin(8,Pin.IN, Pin.PULL_UP)
+
 
 
 tab = []
@@ -22,6 +23,7 @@ body = []
 dir = "UP"
 initBody = True
 isApple = False
+gameOver = False
 
 def turnOff():
     for i in range(64):
@@ -113,52 +115,71 @@ def selectCoord(x, y):
                  lum = line[elementL]
     return lum
 
+def looser():
+    turnOff()
+    pn[17] = (5,0,0)
+    pn[18] = (5,0,0)
+    pn[19] = (5,0,0)
+    pn[20] = (5,0,0)
+    pn[21] = (5,0,0)
+    pn[22] = (5,0,0)
+    pn[25] = (5,0,0)
+    pn[38] = (5,0,0)
+    pn[41] = (5,0,0)
+    pn.write()
+        
  
 def collider():
     global initBody
     global isApple
+    global gameOver
     
     turnOff()
     apple = pomme()
-    x, y = 0,0
-    tab = [[x,y]]
-    tabHead = [x,y]
+    x, y = 0, 0
+    tab = [[x, y]]
+    tabHead = [x, y]
     
     while True:
-        
         movelist = move(x, y)
         x = movelist[0]
         y = movelist[1]
-        tabHead = [x,y]
+        tabHead = [x, y]
         
         if initBody:
             for t in tab:
-                body.append(selectCoord(t[0],t[1]))
+                body.append(selectCoord(t[0], t[1]))
             initBody = False
-            
+        
         head = body[0]    
         
-        tab.insert(0,tabHead) 
-        body.insert(0,selectCoord(x,y))
+        tab.insert(0, tabHead) 
+        body.insert(0, selectCoord(x, y))
         
-        if isApple == False: 
-            pn[body[len(body)-1]]= (0,0,0) #
-            tab.pop() #
-            body.pop() #
-            pn[apple]=(0,5,0)
-            pn.write()
+        # ✅ Collision avec soi-même
+        if selectCoord(x, y) in body[1:]:
+            gameOver = True
+        
+        if not gameOver:
+            if not isApple: 
+                pn[body[-1]] = (0, 0, 0)
+                tab.pop()
+                body.pop()
+                pn[apple] = (0, 5, 0)
+                pn.write()
+            else:
+                apple = pomme()
+                isApple = False
         else:
-            apple = pomme()
-            isApple = False
+            looser()
         
-            
-        pn[body[0]]= (5,5,5)
+        pn[body[0]] = (5, 5, 5)
         
         if head == apple:
             isApple = True
-            pn[apple]=(0,0,0)
+            pn[apple] = (0, 0, 0)
         
         pn.write()
         time.sleep(0.2)
-
+        
 turnOff()

@@ -109,8 +109,10 @@ def selectCoord(x, y):
                  lum = line[elementL]
     return lum
 
-
-
+# def forward():
+#     tab.pop() #
+#     body.pop() #
+ 
 def collider():
     global initBody
     global isApple
@@ -120,6 +122,7 @@ def collider():
     x, y = 0,0
     tab = [[x,y]]
     tabHead = [x,y]
+    print(tabHead)
     
     while True:
         
@@ -134,7 +137,9 @@ def collider():
             initBody = False
             
         head = body[0]
-            
+        print(body)
+        
+        print(head,apple,"111")        
         
         tab.insert(0,tabHead) 
         body.insert(0,selectCoord(x,y))
@@ -144,6 +149,7 @@ def collider():
             tab.pop() #
             body.pop() #
             pn[apple]=(0,5,0)
+            print(len(body)-1)
             pn.write()
         else:
             apple = pomme()
