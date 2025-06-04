@@ -5,6 +5,14 @@
 - [23/10/2024](#23102024)
 - [13/11/2024](#13112024)
 - [4/12/2024](#4122024)
+- [4/12/2024](#4122024)
+- [8/01/2025](#8012025)
+- [29/01/2025](#29012025)
+- [12/03/2025](#12032025)
+- [2/04/2025](#2042025)
+- [14/05/2025](#14052025)
+- [4/06/2025](#4062025)
+
 
 ## Description
 
@@ -28,8 +36,9 @@ Compréhension du fonctionnement de la matrice de LED et premiers affichages lum
 
 #### **13/11/2024**
 
-Finalement passée sur ESP32-C3-Mini (expressif) par contrainte de matériel.
+Finalement passée sur ESP32-C6 (espressif) par contrainte de matériel.
 Pas particulièrement de changements remarqués à propos du traitement du code.
+Différence au niveau du flashage de la carte.
 
 Affichage de lignes et de colonnes séparement avec [affichage.py](affichage.py)
 
@@ -47,21 +56,21 @@ Déplacement du serpent avec les boutons. [déplacement.py](déplacement.py)
 Collision avec la pomme. [collision.py](collision.py)
 
 
-#### **8/012025**
+#### **8/01/2025**
 
-Recherche sur le tableau qui représente le snake qui s'incrémente après avoir mangé la pomme => échec voir test.py
+Recherche sur le tableau qui représente le snake qui s'incrémente après avoir mangé la pomme => échec voir test.py du commit à cette date.
 
 Amélioration du déplacement avec les boutons (voir [direction.py](direction.py)):
 - plus besoin d'appuyer pour se déplacer à chaque fois comme sur le fichier [déplacement.py](déplacement.py)
 - rapprochement de la logique du snake
 
-#### **29/01/2025
+#### **29/01/2025**
 
 - Tableau fonctionnel [tableau.py](tableau.py)
 - Achèvement du snake sans POO encore.
 - Début de POO
 
-#### **12/03/2025
+#### **12/03/2025**
 
 Carte électronique sur *Altium Designer*   
 - Bonnes pratiques:  
@@ -88,4 +97,9 @@ Réalisation de la PCB et routage.
 - Peaufinage du code
 - Préparation de l'oral
 
-
+#### **4/06/2025**
+- Continuité de la préparation de l'oral la veille du rendu
+- Rajout de features(extra pomme, joystick) la veille du rendu
+- Nouveau [schéma de câblage](schema_cablage_final.png)
+- Passage à l'oral
+    - Présentation des features ajoutées et du fonctionnement global du projet
